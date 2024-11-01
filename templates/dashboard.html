@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="dashboard-container">
+    <div class="shipping-form-section">
+        <h2>Create Shipping Request</h2>
+        <form id="shippingForm" class="shipping-form">
+            <div class="form-group">
+                <label for="product_name">Product Name:</label>
+                <input type="text" id="product_name" name="product_name" required>
+            </div>
+            <div class="form-group">
+                <label for="weight">Weight (kg):</label>
+                <input type="number" id="weight" name="weight" step="0.01" required>
+            </div>
+            <div class="form-group">
+                <label for="value">Value ($):</label>
+                <input type="number" id="value" name="value" step="0.01" required>
+            </div>
+            <button type="submit" class="btn">Submit Request</button>
+        </form>
+    </div>
+
+    <div class="shipping-requests-section">
+        <h2>Your Shipping Requests</h2>
+        <div id="requestsList" class="requests-list">
+            <!-- Shipping requests will be loaded here dynamically -->
+        </div>
+    </div>
+
+    <!-- Edit Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Edit Shipping Request</h2>
+            <form id="editShippingForm" class="shipping-form">
+                <input type="hidden" id="edit_request_id">
+                <div class="form-group">
+                    <label for="edit_product_name">Product Name:</label>
+                    <input type="text" id="edit_product_name" name="product_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit_weight">Weight (kg):</label>
+                    <input type="number" id="edit_weight" name="weight" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit_value">Value ($):</label>
+                    <input type="number" id="edit_value" name="value" step="0.01" required>
+                </div>
+                <button type="submit" class="btn">Update Request</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %} 
